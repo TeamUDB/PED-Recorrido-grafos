@@ -10,7 +10,10 @@ namespace Grafos
 {
     class CGrafo
     {
-        public List<CVertice> nodos;    //Lista de nodos del grafo
+        /**
+         * Lista de nodos del grafo
+         **/
+        public List<CVertice> nodos;    
 
         // Constructor
         public CGrafo()

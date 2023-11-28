@@ -25,12 +25,15 @@ namespace Grafos
         {
             InitializeComponent();
             grafo = new CGrafo();                               
-            nuevoNodo = null;                                   
+            nuevoNodo = null;
+            /**
+             * Variable de control, para saber que accion se esta realizando en la pizarra.
+             * Si es 0 -> sin accion, 1 -> Dibujando arco, 2 -> Nuevo vértice
+             **/
             var_control = 0;                                    
             ventanaVertice = new Vertice();                     
-            VentanaEliminar = new EliminarVertice();            
+            VentanaEliminar = new EliminarVertice();
             vEliminarArco = new EliminarArco();
-
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
         }
 
@@ -159,6 +162,8 @@ namespace Grafos
                         grafo.EliminarVertice("");
                     }
 
+                    txtTotalNodos.Text = grafo.nodos.Count().ToString();
+
                     nuevoNodo = null; //Dejamos las variables de control en su valor inicial
                     var_control = 0;
                     Pizarra.Refresh();
@@ -223,6 +228,11 @@ namespace Grafos
                     MessageBox.Show("Error");
                 }
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

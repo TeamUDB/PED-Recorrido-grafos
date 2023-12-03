@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Grafos
@@ -19,19 +13,19 @@ namespace Grafos
         private CVertice NodoDestino;
         private int var_control;
         private Vertice ventanaVertice;
-        private EliminarVertice VentanaEliminar;  
+        private EliminarVertice VentanaEliminar;
         private EliminarArco vEliminarArco;
         public Simulator()
         {
             InitializeComponent();
-            grafo = new CGrafo();                               
+            grafo = new CGrafo();
             nuevoNodo = null;
             /**
              * Variable de control, para saber que accion se esta realizando en la pizarra.
              * Si es 0 -> sin accion, 1 -> Dibujando arco, 2 -> Nuevo vértice
              **/
-            var_control = 0;                                    
-            ventanaVertice = new Vertice();                     
+            var_control = 0;
+            ventanaVertice = new Vertice();
             VentanaEliminar = new EliminarVertice();
             vEliminarArco = new EliminarArco();
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
@@ -44,7 +38,7 @@ namespace Grafos
                 e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
                 grafo.DibujarGrafo(e.Graphics);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -73,7 +67,7 @@ namespace Grafos
                 case 1:
                     if ((NodoDestino = grafo.DetectarPunto(e.Location)) != null && NodoOrigen != NodoDestino)
                     {
-                        if(grafo.AgregarArco(NodoOrigen, NodoDestino))
+                        if (grafo.AgregarArco(NodoOrigen, NodoDestino))
                         {
                             int distancia = 0;
                             NodoOrigen.ListaAdyacencia.Find(v => v.nDestino == NodoDestino).peso = distancia;
@@ -123,7 +117,7 @@ namespace Grafos
                     break;
             }
         }
-        
+
 
         private void Pizarra_MouseDown(object sender, MouseEventArgs e)
         {
@@ -161,8 +155,6 @@ namespace Grafos
                     {
                         grafo.EliminarVertice("");
                     }
-
-                    txtTotalNodos.Text = grafo.nodos.Count().ToString();
 
                     nuevoNodo = null; //Dejamos las variables de control en su valor inicial
                     var_control = 0;
@@ -231,6 +223,16 @@ namespace Grafos
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAncho_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

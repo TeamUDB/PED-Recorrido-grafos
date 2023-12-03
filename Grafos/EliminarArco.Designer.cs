@@ -40,9 +40,9 @@
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(101, 109);
+            this.btnCancelar.Location = new System.Drawing.Point(192, 110);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(74, 35);
+            this.btnCancelar.Size = new System.Drawing.Size(125, 34);
             this.btnCancelar.TabIndex = 19;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -51,9 +51,9 @@
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(21, 109);
+            this.btnEliminar.Location = new System.Drawing.Point(31, 110);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(74, 35);
+            this.btnEliminar.Size = new System.Drawing.Size(125, 34);
             this.btnEliminar.TabIndex = 18;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -61,11 +61,11 @@
             // 
             // txtVerticeDestino
             // 
-            this.txtVerticeDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVerticeDestino.Location = new System.Drawing.Point(101, 61);
+            this.txtVerticeDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVerticeDestino.Location = new System.Drawing.Point(150, 59);
             this.txtVerticeDestino.Multiline = true;
             this.txtVerticeDestino.Name = "txtVerticeDestino";
-            this.txtVerticeDestino.Size = new System.Drawing.Size(53, 24);
+            this.txtVerticeDestino.Size = new System.Drawing.Size(167, 34);
             this.txtVerticeDestino.TabIndex = 17;
             this.txtVerticeDestino.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtVerticeDestino_KeyDown);
             // 
@@ -73,7 +73,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 64);
+            this.label2.Location = new System.Drawing.Point(28, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 15);
             this.label2.TabIndex = 16;
@@ -81,11 +81,11 @@
             // 
             // txtVerticeOrigen
             // 
-            this.txtVerticeOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVerticeOrigen.Location = new System.Drawing.Point(101, 14);
+            this.txtVerticeOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVerticeOrigen.Location = new System.Drawing.Point(150, 12);
             this.txtVerticeOrigen.Multiline = true;
             this.txtVerticeOrigen.Name = "txtVerticeOrigen";
-            this.txtVerticeOrigen.Size = new System.Drawing.Size(53, 24);
+            this.txtVerticeOrigen.Size = new System.Drawing.Size(167, 34);
             this.txtVerticeOrigen.TabIndex = 21;
             this.txtVerticeOrigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtVerticeOrigen_KeyDown);
             // 
@@ -93,7 +93,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 17);
+            this.label3.Location = new System.Drawing.Point(28, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 15);
             this.label3.TabIndex = 20;
@@ -104,7 +104,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(202, 169);
+            this.ClientSize = new System.Drawing.Size(347, 171);
             this.Controls.Add(this.txtVerticeOrigen);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancelar);

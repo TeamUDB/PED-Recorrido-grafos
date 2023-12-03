@@ -37,9 +37,9 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(118, 83);
+            this.btnCancelar.Location = new System.Drawing.Point(197, 63);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(72, 34);
+            this.btnCancelar.Size = new System.Drawing.Size(125, 34);
             this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -48,9 +48,9 @@
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(40, 83);
+            this.btnEliminar.Location = new System.Drawing.Point(26, 63);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(72, 34);
+            this.btnEliminar.Size = new System.Drawing.Size(125, 34);
             this.btnEliminar.TabIndex = 13;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -59,12 +59,12 @@
             // txtVertice
             // 
             this.txtVertice.BackColor = System.Drawing.SystemColors.Window;
-            this.txtVertice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVertice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVertice.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.txtVertice.Location = new System.Drawing.Point(153, 35);
+            this.txtVertice.Location = new System.Drawing.Point(155, 17);
             this.txtVertice.Multiline = true;
             this.txtVertice.Name = "txtVertice";
-            this.txtVertice.Size = new System.Drawing.Size(51, 24);
+            this.txtVertice.Size = new System.Drawing.Size(167, 34);
             this.txtVertice.TabIndex = 12;
             this.txtVertice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEliminar_KeyDown);
             // 
@@ -72,9 +72,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 35);
+            this.label2.Location = new System.Drawing.Point(23, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 16);
+            this.label2.Size = new System.Drawing.Size(125, 16);
             this.label2.TabIndex = 11;
             this.label2.Text = "Valor nuevo vértice:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -84,12 +84,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(238, 135);
+            this.ClientSize = new System.Drawing.Size(347, 122);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.txtVertice);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "EliminarVertice";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Eliminar Vértice";
             this.Load += new System.EventHandler(this.EliminarVertice_Load_1);
             this.ResumeLayout(false);

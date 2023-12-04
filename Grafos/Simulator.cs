@@ -198,7 +198,7 @@ namespace Grafos
                     {
                         if (grafo.BuscarVertice(ventanaVertice.txtVertice.Text) == null) //si ese nodo no existe aun lo creamos
                         {
-                            nuevoNodo.Valor = ventanaVertice.txtVertice.Text;
+                            nuevoNodo.Valor = ventanaVertice.txtVertice.Text.ToUpper();
                         }
                         else //si ese nodo ya existe enviamos un error
                         {
@@ -303,7 +303,7 @@ namespace Grafos
             List<CVertice> visitados = new List<CVertice>();
 
             // Nodo actual
-            CVertice nodoActual = buscarNodo(txtVerticeOrigen.Text);
+            CVertice nodoActual = buscarNodo(txtVerticeOrigen.Text.ToUpper());
 
             // Si el nodo no existe, informamos que no se encontro el nodo
             if (nodoActual == null)
@@ -369,7 +369,7 @@ namespace Grafos
             List<CVertice> visitados = new List<CVertice>();
 
             // Nodo actual
-            CVertice nodoActual = buscarNodo(txtVerticeOrigen.Text);
+            CVertice nodoActual = buscarNodo(txtVerticeOrigen.Text.ToUpper());
 
             // Si el nodo no existe, informamos que no se encontro el nodo
             if (nodoActual == null)

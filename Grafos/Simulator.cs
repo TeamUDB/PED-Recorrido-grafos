@@ -303,7 +303,14 @@ namespace Grafos
             List<CVertice> visitados = new List<CVertice>();
 
             // Nodo actual
-            CVertice nodoActual = buscarNodo("SAN SALVADOR");
+            CVertice nodoActual = buscarNodo(txtVerticeOrigen.Text);
+
+            // Si el nodo no existe, informamos que no se encontro el nodo
+            if (nodoActual == null)
+            {
+                MessageBox.Show("El nodo " + txtVerticeOrigen.Text + " no existe en el grafo", "Error al buscar el nodo");
+                return;
+            }
 
             // Agregamos el nodo actual a la cola
             cola.Enqueue(nodoActual);
@@ -330,12 +337,12 @@ namespace Grafos
                         if (visitados.Find(v => v.Valor == arco.nDestino.Valor) == null)
                         {
                             CVertice nodoDestino = arco.nDestino;
-                            nodoDestino.Color = Color.Red;
+                            // nodoDestino.Color = Color.Red;
                             // Agregamos el nodo adyacente a la cola
                             cola.Enqueue(arco.nDestino);
-                            Pizarra.Refresh();
+                            // Pizarra.Refresh();
                             // esperamos 2 segundos
-                            System.Threading.Thread.Sleep(2000);
+                            // System.Threading.Thread.Sleep(2000);
 
                         }
                     }
@@ -362,7 +369,14 @@ namespace Grafos
             List<CVertice> visitados = new List<CVertice>();
 
             // Nodo actual
-            CVertice nodoActual = buscarNodo("SAN SALVADOR");
+            CVertice nodoActual = buscarNodo(txtVerticeOrigen.Text);
+
+            // Si el nodo no existe, informamos que no se encontro el nodo
+            if (nodoActual == null)
+            {
+                MessageBox.Show("El nodo " + txtVerticeOrigen.Text + " no existe en el grafo", "Error al buscar el nodo");
+                return;
+            }
 
             // Agregamos el nodo actual a la pila
             pila.Push(nodoActual);

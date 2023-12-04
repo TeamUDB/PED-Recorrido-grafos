@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;               //Libreria agregada, para poder dibujar
+﻿using System.Drawing;               //Libreria agregada, para poder dibujar
 
 namespace Grafos
 {

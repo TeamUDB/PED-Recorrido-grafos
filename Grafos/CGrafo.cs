@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Drawing;           //Libreria agregada, para poder dibujar
 
 namespace Grafos
@@ -13,7 +8,7 @@ namespace Grafos
         /**
          * Lista de nodos del grafo
          **/
-        public List<CVertice> nodos;    
+        public List<CVertice> nodos;
 
         // Constructor
         public CGrafo()
@@ -65,7 +60,7 @@ namespace Grafos
         }
 
         //Busca un nodo y si existe lo elimina
-        public void EliminarVertice(string sEvalor) 
+        public void EliminarVertice(string sEvalor)
         {
             if (this.BuscarVertice(sEvalor) != null)
             {//si la encontramos el nodo lo removemos de la lista, al re-dibujar el grafo ya no aparece el nodo

@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Drawing;           //Libreria agregada, para poder dibujar
 using System.Drawing.Drawing2D; //Libreria agregada, para poder dibujar
-using System.Text;
-using System.Threading.Tasks;   //Libreria agregada, para el manejo de hilos de ejecucion
 
 namespace Grafos
 {
@@ -106,15 +103,15 @@ namespace Grafos
                 {
                     CustomEndCap = bigArrow,
                     Alignment = PenAlignment.Center
-                }, _posicion, new Point(arco.nDestino.Posicion.X + (int)(radio * difX / distancia),arco.nDestino.Posicion.Y + (int)(radio * difY / distancia))
+                }, _posicion, new Point(arco.nDestino.Posicion.X + (int)(radio * difX / distancia), arco.nDestino.Posicion.Y + (int)(radio * difY / distancia))
                 );
 
                 g.DrawString(
                     arco.peso.ToString(),
                     new Font("Times New Roman", 12),
-                    new SolidBrush (Color.White),
-                    this._posicion.X - (int) ((difX/3)),
-                    this._posicion.Y - (int) ((difY/3)),
+                    new SolidBrush(Color.White),
+                    this._posicion.X - (int)((difX / 3)),
+                    this._posicion.Y - (int)((difY / 3)),
                     new StringFormat()
                     {
                         Alignment = StringAlignment.Center,

@@ -71,6 +71,12 @@
     <Compile Include="Simulator.Designer.cs">
       <DependentUpon>Simulator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Peso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Peso.Designer.cs">
+      <DependentUpon>Peso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vertice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </Compile>
     <EmbeddedResource Include="Simulator.resx">
       <DependentUpon>Simulator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Peso.resx">
+      <DependentUpon>Peso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vertice.resx">
       <DependentUpon>Vertice.cs</DependentUpon>

@@ -16,6 +16,7 @@ namespace Grafos
         private Vertice ventanaVertice;
         private EliminarVertice VentanaEliminar;
         private EliminarArco vEliminarArco;
+        private Peso vPeso;
         public Simulator()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace Grafos
             ventanaVertice = new Vertice();
             VentanaEliminar = new EliminarVertice();
             vEliminarArco = new EliminarArco();
+            vPeso = new Peso();
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
             DataDemo();
         }
@@ -122,9 +124,14 @@ namespace Grafos
                 case 1:
                     if ((NodoDestino = grafo.DetectarPunto(e.Location)) != null && NodoOrigen != NodoDestino)
                     {
+                        int distancia = 0;
+
+                        vPeso.Visible = false;
+                        vPeso.control = false;
+                        vPeso.ShowDialog();
+                        distancia = int.Parse(vPeso.txtPeso.Text.Trim());
                         if (grafo.AgregarArco(NodoOrigen, NodoDestino))
                         {
-                            int distancia = 0;
                             NodoOrigen.ListaAdyacencia.Find(v => v.nDestino == NodoDestino).peso = distancia;
                         }
                     }

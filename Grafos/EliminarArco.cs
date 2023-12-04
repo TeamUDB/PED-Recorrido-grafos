@@ -22,8 +22,8 @@ namespace Grafos
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            string valorOrigen = txtVerticeOrigen.Text.Trim();
-            string valorDestino = txtVerticeDestino.Text.Trim();
+            string valorOrigen = txtVerticeOrigen.Text.ToUpper().Trim();
+            string valorDestino = txtVerticeDestino.Text.ToUpper().Trim();
             if ((valorOrigen == "") || (valorOrigen == " ") || (valorDestino == "") || (valorDestino == " "))
             {
                 MessageBox.Show("No deje ningun campo vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

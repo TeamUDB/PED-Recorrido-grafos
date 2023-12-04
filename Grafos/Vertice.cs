@@ -49,7 +49,7 @@ namespace Grafos
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            string valor = txtVertice.Text.Trim();
+            string valor = txtVertice.Text.ToUpper().Trim();
             if ((valor == "") || (valor == " "))
             {
                 MessageBox.Show("Debes ingresar un valor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

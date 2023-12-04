@@ -196,9 +196,9 @@ namespace Grafos
 
                     if (ventanaVertice.control) //control el una variable tipo Bool que pertenece al form Vertice
                     {
-                        if (grafo.BuscarVertice(ventanaVertice.txtVertice.Text) == null) //si ese nodo no existe aun lo creamos
+                        if (grafo.BuscarVertice(ventanaVertice.txtVertice.Text.ToUpper().Trim()) == null) //si ese nodo no existe aun lo creamos
                         {
-                            nuevoNodo.Valor = ventanaVertice.txtVertice.Text.ToUpper();
+                            nuevoNodo.Valor = ventanaVertice.txtVertice.Text.ToUpper().Trim();
                         }
                         else //si ese nodo ya existe enviamos un error
                         {
@@ -237,7 +237,7 @@ namespace Grafos
             VentanaEliminar.Visible = false;
             VentanaEliminar.Econtrol = false;
             VentanaEliminar.ShowDialog();  //Mostramos el Form donde especificaremos el valor del nodo que queremos borrar
-            CVertice VerticeOrigen = grafo.BuscarVertice(VentanaEliminar.txtVertice.Text);
+            CVertice VerticeOrigen = grafo.BuscarVertice(VentanaEliminar.txtVertice.Text.ToUpper().Trim());
             if (VerticeOrigen != null) //si existe entonces lo eliminamos
             {
                 grafo.EliminarVertice(VerticeOrigen); //Para eliminar el vertice llamamos al procedimiento EliminarVerice de la clase CGrafo
@@ -256,8 +256,8 @@ namespace Grafos
             vEliminarArco.Visible = false;
             vEliminarArco.Econtrol = false;
             vEliminarArco.ShowDialog();
-            CVertice eNodoOrigen = grafo.BuscarVertice(vEliminarArco.txtVerticeOrigen.Text);
-            CVertice eNodoDestino = grafo.BuscarVertice(vEliminarArco.txtVerticeDestino.Text);
+            CVertice eNodoOrigen = grafo.BuscarVertice(vEliminarArco.txtVerticeOrigen.Text.ToUpper().Trim());
+            CVertice eNodoDestino = grafo.BuscarVertice(vEliminarArco.txtVerticeDestino.Text.ToUpper().Trim());
 
             if (eNodoOrigen == null || eNodoDestino == null)
             {
@@ -303,12 +303,12 @@ namespace Grafos
             List<CVertice> visitados = new List<CVertice>();
 
             // Nodo actual
-            CVertice nodoActual = buscarNodo(txtVerticeOrigen.Text.ToUpper());
+            CVertice nodoActual = buscarNodo(txtVerticeOrigen.Text.ToUpper().Trim());
 
             // Si el nodo no existe, informamos que no se encontro el nodo
             if (nodoActual == null)
             {
-                MessageBox.Show("El nodo " + txtVerticeOrigen.Text + " no existe en el grafo", "Error al buscar el nodo");
+                MessageBox.Show("El nodo " + txtVerticeOrigen.Text.ToUpper().Trim() + " no existe en el grafo", "Error al buscar el nodo");
                 return;
             }
 
@@ -369,12 +369,12 @@ namespace Grafos
             List<CVertice> visitados = new List<CVertice>();
 
             // Nodo actual
-            CVertice nodoActual = buscarNodo(txtVerticeOrigen.Text.ToUpper());
+            CVertice nodoActual = buscarNodo(txtVerticeOrigen.Text.ToUpper().Trim());
 
             // Si el nodo no existe, informamos que no se encontro el nodo
             if (nodoActual == null)
             {
-                MessageBox.Show("El nodo " + txtVerticeOrigen.Text + " no existe en el grafo", "Error al buscar el nodo");
+                MessageBox.Show("El nodo " + txtVerticeOrigen.Text.ToUpper().Trim() + " no existe en el grafo", "Error al buscar el nodo");
                 return;
             }
 
@@ -433,6 +433,11 @@ namespace Grafos
         private void btnProfundidad_Click(object sender, EventArgs e)
         {
             recorridoProfundidad();
+        }
+
+        private void txtVerticeOrigen_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -20,15 +20,69 @@ namespace Grafos
             InitializeComponent();
             grafo = new CGrafo();
             nuevoNodo = null;
-            /**
-             * Variable de control, para saber que accion se esta realizando en la pizarra.
-             * Si es 0 -> sin accion, 1 -> Dibujando arco, 2 -> Nuevo vértice
-             **/
+            /*
+            * Variable de control, para saber que accion se esta realizando en la pizarra.
+            * Si es 0 -> sin accion, 1 -> Dibujando arco, 2 -> Nuevo vértice
+            */
             var_control = 0;
             ventanaVertice = new Vertice();
             VentanaEliminar = new EliminarVertice();
             vEliminarArco = new EliminarArco();
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
+            DataDemo();
+        }
+
+        private void DataDemo()
+        {
+            /* 
+             * Se agregan nodos al grafo de ejemplo
+            */
+            CVertice nodoSanSalvador = new CVertice("SAN SALVADOR");
+            nodoSanSalvador.Posicion = new Point(270, 150);
+            grafo.AgregarVertice(nodoSanSalvador);
+
+            CVertice nodoSoyapango = new CVertice("SOYAPANGO");
+            nodoSoyapango.Posicion = new Point(65, 230);
+            grafo.AgregarVertice(nodoSoyapango);
+
+            CVertice nodoMejicanos = new CVertice("MEJICANOS");
+            nodoMejicanos.Posicion = new Point(230, 250);
+            grafo.AgregarVertice(nodoMejicanos);
+
+            CVertice nodoSantaTecla = new CVertice("SANTA TECLA");
+            nodoSantaTecla.Posicion = new Point(460, 80);
+            grafo.AgregarVertice(nodoSantaTecla);
+
+            CVertice nodoApopa = new CVertice("APOPA");
+            nodoApopa.Posicion = new Point(270, 400);
+            grafo.AgregarVertice(nodoApopa);
+
+            /* 
+             * Se agregan los arcos partiendo de San Salvador
+             */
+            grafo.AgregarArco(nodoSanSalvador, nodoSoyapango, 6);
+            grafo.AgregarArco(nodoSanSalvador, nodoSantaTecla, 10);
+            grafo.AgregarArco(nodoSanSalvador, nodoMejicanos, 4);
+
+            /* 
+             * Se agregan los arcos partiendo de Soyapango
+             */
+            grafo.AgregarArco(nodoSoyapango, nodoMejicanos, 5);
+
+            /* 
+             *Se agregan los arcos partiendo de Mejicanos
+             */
+            grafo.AgregarArco(nodoMejicanos, nodoApopa, 9);
+
+            /* 
+             *Se agregan los arcos partiendo de Apopa
+             */
+            grafo.AgregarArco(nodoApopa, nodoSanSalvador, 13);
+
+            /* 
+             *Se agregan los arcos partiendo de Santa Tecla
+             */
+            grafo.AgregarArco(nodoSantaTecla, nodoApopa, 18);
         }
 
         private void Pizarra_Paint(object sender, PaintEventArgs e)

@@ -133,6 +133,7 @@
             this.btnProfundidad.TabIndex = 7;
             this.btnProfundidad.Text = "PROFUNDIDAD";
             this.btnProfundidad.UseVisualStyleBackColor = true;
+            this.btnProfundidad.Click += new System.EventHandler(this.btnProfundidad_Click);
             // 
             // label3
             // 

@@ -352,9 +352,73 @@ namespace Grafos
             Pizarra.Refresh();
         }
 
+        // Recorrido en profundidad utilizando una pila
+        private void recorridoProfundidad()
+        {
+            // Pila para almacenar los nodos a visitar
+            Stack<CVertice> pila = new Stack<CVertice>();
+
+            // Lista de nodos Visitados
+            List<CVertice> visitados = new List<CVertice>();
+
+            // Nodo actual
+            CVertice nodoActual = buscarNodo("SAN SALVADOR");
+
+            // Agregamos el nodo actual a la pila
+            pila.Push(nodoActual);
+
+            // Mientras la pila no esté vacía
+            while (pila.Count > 0)
+            {
+                // Sacamos el primer elemento de la pila
+                nodoActual = pila.Pop();
+
+                if (visitados.Find(v => v.Valor == nodoActual.Valor) == null)
+                {
+                    // Agregamos el nodo actual a la lista de visitados
+                    visitados.Add(nodoActual);
+                    nodoActual.Color = Color.Green;
+                    Pizarra.Refresh();
+                    // Esperamos 2 segundo
+                    System.Threading.Thread.Sleep(2000);
+
+                    // Recorremos los nodos adyacentes al nodo actual
+                    foreach (CArco arco in nodoActual.ListaAdyacencia)
+                    {
+                        // Si el nodo adyacente no ha sido visitado
+                        if (visitados.Find(v => v.Valor == arco.nDestino.Valor) == null)
+                        {
+                            CVertice nodoDestino = arco.nDestino;
+                            // nodoDestino.Color = Color.Red;
+                            // Agregamos el nodo adyacente a la pila
+                            pila.Push(arco.nDestino);
+                            //Pizarra.Refresh();
+                            // esperamos 2 segundos
+                            // System.Threading.Thread.Sleep(2000);
+
+                        }
+                    }
+                }
+            }
+
+            // Esperar 2 segundos
+            System.Threading.Thread.Sleep(2000);
+            // Limpiamos los colores de los nodos
+            foreach (CVertice v in visitados)
+            {
+                v.Color = Color.SlateBlue;
+            }
+            Pizarra.Refresh();
+        }
+
         private CVertice buscarNodo(string valor)
         {
             return grafo.nodos.Find(v => v.Valor == valor);
+        }
+
+        private void btnProfundidad_Click(object sender, EventArgs e)
+        {
+            recorridoProfundidad();
         }
     }
 }

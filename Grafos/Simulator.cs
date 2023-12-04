@@ -283,11 +283,49 @@ namespace Grafos
 
         private void btnAncho_Click(object sender, EventArgs e)
         {
-
+            recorridoAnchura();
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void recorridoAnchura()
+        {
+            // Obtener el número de nodos del grafo
+            int numNodos = grafo.nodos.Count;
+            // Escribirlo en la consola
+            Console.WriteLine("Número de nodos: " + numNodos);
+
+            // Recorrer todos los nodos del grafo a los ancho.
+            for (int i = 0; i < numNodos; i++)
+            {
+                // Obtener el nodo actual
+                CVertice nodoActual = grafo.nodos[i];
+                // Escribirlo en la consola
+                Console.WriteLine("Nodo actual: " + nodoActual.Valor);
+                // Obtener la lista de adyacencia del nodo actual
+                var listaAdyacencia = nodoActual.ListaAdyacencia;
+                // Obtener el número de nodos adyacentes al nodo actual
+                int numNodosAdyacentes = listaAdyacencia.Count;
+                // Escribirlo en la consola
+                Console.WriteLine("Número de nodos adyacentes: " + numNodosAdyacentes);
+                // Recorrer todos los nodos adyacentes al nodo actual
+                for (int j = 0; j < numNodosAdyacentes; j++)
+                {
+                    // Obtener el nodo adyacente actual
+                    CArco nodoAdyacenteActual = listaAdyacencia[j];
+                    // Escribirlo en la consola
+                    Console.WriteLine("Nodo adyacente actual: " + nodoAdyacenteActual.nDestino.Valor);
+                    // Generar otro nodo identico al nodo actual
+                    CVertice nodoAdyacenteActual2 = nodoAdyacenteActual.nDestino;
+                    nodoAdyacenteActual2.Color = Color.Red;
+                    // Refrescar la pizarra y luego esperar 2 segundos para continuar
+                    Pizarra.Refresh();
+                    System.Threading.Thread.Sleep(2000);
+                }
+            }
 
         }
     }

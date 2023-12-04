@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -291,42 +292,69 @@ namespace Grafos
 
         }
 
+
+        // Recorrido en anchura utilizando una cola
         private void recorridoAnchura()
         {
-            // Obtener el número de nodos del grafo
-            int numNodos = grafo.nodos.Count;
-            // Escribirlo en la consola
-            Console.WriteLine("Número de nodos: " + numNodos);
+            // Cola para almacenar los nodos a visitar
+            Queue<CVertice> cola = new Queue<CVertice>();
 
-            // Recorrer todos los nodos del grafo a los ancho.
-            for (int i = 0; i < numNodos; i++)
+            // Lista de nodos Visitados
+            List<CVertice> visitados = new List<CVertice>();
+
+            // Nodo actual
+            CVertice nodoActual = buscarNodo("SAN SALVADOR");
+
+            // Agregamos el nodo actual a la cola
+            cola.Enqueue(nodoActual);
+
+            // Mientras la cola no esté vacía
+            while (cola.Count > 0)
             {
-                // Obtener el nodo actual
-                CVertice nodoActual = grafo.nodos[i];
-                // Escribirlo en la consola
-                Console.WriteLine("Nodo actual: " + nodoActual.Valor);
-                // Obtener la lista de adyacencia del nodo actual
-                var listaAdyacencia = nodoActual.ListaAdyacencia;
-                // Obtener el número de nodos adyacentes al nodo actual
-                int numNodosAdyacentes = listaAdyacencia.Count;
-                // Escribirlo en la consola
-                Console.WriteLine("Número de nodos adyacentes: " + numNodosAdyacentes);
-                // Recorrer todos los nodos adyacentes al nodo actual
-                for (int j = 0; j < numNodosAdyacentes; j++)
+                // Sacamos el primer elemento de la cola
+                nodoActual = cola.Dequeue();
+
+                if (visitados.Find(v => v.Valor == nodoActual.Valor) == null)
                 {
-                    // Obtener el nodo adyacente actual
-                    CArco nodoAdyacenteActual = listaAdyacencia[j];
-                    // Escribirlo en la consola
-                    Console.WriteLine("Nodo adyacente actual: " + nodoAdyacenteActual.nDestino.Valor);
-                    // Generar otro nodo identico al nodo actual
-                    CVertice nodoAdyacenteActual2 = nodoAdyacenteActual.nDestino;
-                    nodoAdyacenteActual2.Color = Color.Red;
-                    // Refrescar la pizarra y luego esperar 2 segundos para continuar
+                    // Agregamos el nodo actual a la lista de visitados
+                    visitados.Add(nodoActual);
+                    nodoActual.Color = Color.Green;
                     Pizarra.Refresh();
+                    // Esperamos 2 segundo
                     System.Threading.Thread.Sleep(2000);
+
+                    // Recorremos los nodos adyacentes al nodo actual
+                    foreach (CArco arco in nodoActual.ListaAdyacencia)
+                    {
+                        // Si el nodo adyacente no ha sido visitado
+                        if (visitados.Find(v => v.Valor == arco.nDestino.Valor) == null)
+                        {
+                            CVertice nodoDestino = arco.nDestino;
+                            nodoDestino.Color = Color.Red;
+                            // Agregamos el nodo adyacente a la cola
+                            cola.Enqueue(arco.nDestino);
+                            Pizarra.Refresh();
+                            // esperamos 2 segundos
+                            System.Threading.Thread.Sleep(2000);
+
+                        }
+                    }
                 }
             }
 
+            // Esperar 2 segundos
+            System.Threading.Thread.Sleep(2000);
+            // Limpiamos los colores de los nodos
+            foreach (CVertice v in visitados)
+            {
+                v.Color = Color.SlateBlue;
+            }
+            Pizarra.Refresh();
+        }
+
+        private CVertice buscarNodo(string valor)
+        {
+            return grafo.nodos.Find(v => v.Valor == valor);
         }
     }
 }
